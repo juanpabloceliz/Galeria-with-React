@@ -1,45 +1,43 @@
-import React from "react"
+import React, { Component } from "react"
+import { connect } from "react-redux"
 
-export default class Home extends React.Component {
-  state = {
-    loading: true,
-    error: null,
-    data: undefined,
-  }
+import * as cardsAction from "../actions/cardsAction"
 
+import LoadingIcon from "./resources/LoadingIcon.jsx"
+import "../assets/Home.scss"
+
+class Home extends Component {
   componentDidMount() {
-    this.fetchData()
+    this.props.pullAll()
   }
 
-  fetchData = async () => {
-    this.setState({ loading: true, error: null })
-
-    try {
-      await fetch("https://picsum.photos/v2/list")
-        .then((response) => {
-          return response.json()
-        })
-        .then((response) => {
-          console.log(response)
-          const data = response
-          this.setState({ loading: false, data: data })
-        })
-    } catch (error) {
-      this.setState({ loading: false, error: error })
+  showContent = () => {
+    if (this.props.loading) {
+      return <LoadingIcon />
     }
+
+    return <div className="content">{this.createCard()}</div>
   }
 
-  render() {
-    if (this.state.loading === true) {
-      return "Loading..."
-    }
-
-    return (
-      <div>
-        <div className="img">
-          <h1>hi</h1>
+  createCard = () =>
+    this.props.cards.map((card) => (
+      <div className="content__card" key={card.id}>
+        <div className="content__card--title">
+          <h2> {card.author} </h2>
+        </div>
+        <div className="content__card--image">
+          <img src={card.download_url} alt="img" width="100%" />
         </div>
       </div>
-    )
+    ))
+
+  render() {
+    return <div>{this.showContent()}</div>
   }
 }
+
+const mapStateToProps = (reducers) => {
+  return reducers.cardsCall
+}
+
+export default connect(mapStateToProps, cardsAction)(Home)

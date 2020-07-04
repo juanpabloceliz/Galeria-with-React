@@ -2,13 +2,18 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./assets/index.css"
 import App from "./pages/App"
-import * as serviceWorker from "./serviceWorker"
+
+import { createStore, applyMiddleware } from "redux"
+import { Provider } from "react-redux"
+import reduxThunk from "redux-thunk"
+
+import reducers from "./reducers/index"
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 )
-
-serviceWorker.register()

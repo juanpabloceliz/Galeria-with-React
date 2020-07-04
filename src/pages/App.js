@@ -8,14 +8,12 @@ import "../assets/App.css"
 
 function App() {
   return (
-    <React.Fragment>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </BrowserRouter>
-    </React.Fragment>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/home" component={Home} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

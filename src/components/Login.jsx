@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import "../assets/Login.scss"
+import { Link } from "react-router-dom"
 
 export default class Login extends Component {
   render() {
@@ -20,17 +21,19 @@ export default class Login extends Component {
               className="login__form--user"
               id="User"
               placeholder="Usuario"
-              required="true"
+              required={true}
             />
             <input
               type="password"
               className="login__form--password"
               id="Password"
               placeholder="Contraseña"
-              required="true"
+              required={true}
             />
           </section>
-          <button className="login__btn">Ingresar</button>
+          <Link to="/home" className="login__btn">
+            Ingresar
+          </Link>
           <section className="login__text">
             <p>Esta es una prueba técnica sobre React.</p>
           </section>

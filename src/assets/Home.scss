@@ -1,0 +1,33 @@
+@import "./variables/vars";
+@import "./mixins/mixins";
+
+.content {
+  @include respond-to(320px) {
+    @include size(auto, 100vw);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-gap: 10px;
+    justify-content: center;
+    background-color: $color-white-transparent-high;
+    &__card {
+      @include size(auto, 92%);
+      @include centralize-col();
+      border-radius: 5px;
+      padding: 10px;
+      background-color: $color-grey-transparent;
+      &--title {
+        @include size(10%, 100%);
+        @include centralize-col();
+        font-family: $font-first;
+        font-size: 8px;
+        color: $color-white;
+      }
+      &--image {
+        @include size(90%, 100%);
+        & img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
