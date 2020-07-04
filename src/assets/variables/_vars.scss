@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+$color-brand: #2a133b;
+$color-brand-light: lighten($color-brand, 15%);
+$color-brand-dark: rgba($color-brand, 0.5);
+$color-white: #ffffff;
+$color-white-transparent: rgba($color-white, 0.3);
+$color-black: #000000;
+$color-black-transparent: rgba($color-black, 0.3);
+$font-first: "Montserrat", sans-serif;

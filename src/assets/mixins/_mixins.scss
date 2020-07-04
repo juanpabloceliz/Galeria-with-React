@@ -1,0 +1,39 @@
+@import "../variables/vars";
+
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin centralize-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin direction-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin login-input {
+  height: 20px;
+  font-size: 15px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  border: solid 1px $color-black;
+  border-radius: 20px;
+  background-color: $color-brand-dark;
+  color: $color-white;
+  &:focus {
+    outline: none;
+    background-color: $color-black-transparent;
+  }
+}
+
+@mixin respond-to($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}

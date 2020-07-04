@@ -1,0 +1,90 @@
+@import "./variables/vars";
+@import "./mixins/mixins";
+
+.login {
+  @include respond-to(320px) {
+    @include centralize-col;
+    @include size(300px, 200px);
+    border: solid 1px $color-brand;
+    border-radius: 30px;
+    padding: 20px 10px 0;
+    background-color: $color-white-transparent;
+    box-shadow: 0px 0px 30px 10px $color-brand;
+    &__title {
+      text-align: center;
+      font-family: $font-first;
+      color: $color-white;
+      font-size: 18px;
+    }
+    &__title img {
+      width: 150px;
+    }
+    &__form {
+      @include direction-col;
+      width: 120px;
+      &--user {
+        @include login-input;
+      }
+      &--password {
+        @include login-input;
+      }
+      ::placeholder {
+        font-family: $font-first;
+        color: $color-black;
+        font-weight: 800;
+      }
+    }
+    &__btn {
+      width: 100px;
+      height: 30px;
+      font-size: 15px;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      border: solid 1px $color-brand;
+      border-radius: 20px;
+      background-color: $color-brand-light;
+      color: $color-white;
+      &:hover {
+        outline: none;
+        background-color: $color-brand;
+      }
+      &:focus {
+        outline: none;
+        background-color: $color-brand;
+      }
+    }
+    &__text p {
+      text-align: center;
+      font-size: 11px;
+      font-family: $font-first;
+      color: $color-white;
+    }
+  }
+  @include respond-to(1000px) {
+    @include size(500px, 300px);
+    &__title {
+      font-size: 25px;
+    }
+    &__title img {
+      width: 250px;
+    }
+    &__form {
+      @include direction-col;
+      width: 200px;
+      &--user {
+        height: 30px;
+      }
+      &--password {
+        height: 30px;
+      }
+    }
+    &__btn {
+      width: 150px;
+      height: 40px;
+      font-size: 20px;
+    }
+    &__text p {
+      font-size: 12px;
+    }
+  }
+}
