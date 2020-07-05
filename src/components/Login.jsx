@@ -1,44 +1,66 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
+import { connect } from "react-redux"
+
+import { loginRequest } from "../actions/loginAction"
 
 import "../assets/Login.scss"
-import { Link } from "react-router-dom"
 
-export default class Login extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <section className="login">
-          <section className="login__title">
-            <img
-              src="https://urbetrack.com/wp-content/uploads/2017/05/urbelogo.png"
-              alt="urbetrack logo"
-            />
-            <h1>Bienvenido</h1>
-          </section>
-          <section className="login__form">
-            <input
-              type="text"
-              className="login__form--user"
-              id="User"
-              placeholder="Usuario"
-              required={true}
-            />
-            <input
-              type="password"
-              className="login__form--password"
-              id="Password"
-              placeholder="Contraseña"
-              required={true}
-            />
-          </section>
-          <Link to="/home" className="login__btn">
-            Ingresar
-          </Link>
-          <section className="login__text">
-            <p>Esta es una prueba técnica sobre React.</p>
-          </section>
-        </section>
-      </React.Fragment>
-    )
+const Login = (props) => {
+  const [form, setValues] = useState({})
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    })
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    props.loginRequest(form)
+    props.history.push("/home")
+    console.log(form)
+  }
+
+  return (
+    <React.Fragment>
+      <section className="login">
+        <section className="login__title">
+          <img
+            src="https://urbetrack.com/wp-content/uploads/2017/05/urbelogo.png"
+            alt="urbetrack logo"
+          />
+          <h1>Bienvenido</h1>
+        </section>
+        <form className="login__form" onSubmit={handleSubmit}>
+          <input
+            name="User"
+            type="text"
+            className="login__form--user"
+            placeholder="Usuario"
+            onChange={handleInput}
+          />
+          <input
+            name="Password"
+            type="password"
+            className="login__form--password"
+            placeholder="Contraseña"
+            onChange={handleInput}
+          />
+          <button type="submit" className="login__btn">
+            Ingresar
+          </button>
+        </form>
+        <section className="login__text">
+          <p>Esta es una prueba técnica sobre React.</p>
+        </section>
+      </section>
+    </React.Fragment>
+  )
 }
+
+const mapDispatchToProps = {
+  loginRequest,
+}
+
+export default connect(null, mapDispatchToProps)(Login)
