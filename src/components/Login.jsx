@@ -6,20 +6,20 @@ import { loginRequest } from "../actions/loginAction"
 import "../assets/Login.scss"
 
 const Login = (props) => {
-  const [form, setValues] = useState({})
+  const [state, setState] = useState({ props })
 
   const handleInput = (event) => {
-    setValues({
-      ...form,
+    setState({
+      ...state,
       [event.target.name]: event.target.value,
     })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.loginRequest(form)
+    props.loginRequest(state)
     props.history.push("/home")
-    console.log(form)
+    console.log(state)
   }
 
   return (
@@ -59,8 +59,12 @@ const Login = (props) => {
   )
 }
 
+const mapStateToProps = (reducers) => {
+  return reducers.loginReducer
+}
+
 const mapDispatchToProps = {
   loginRequest,
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
