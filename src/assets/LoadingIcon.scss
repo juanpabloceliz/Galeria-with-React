@@ -1,14 +1,18 @@
 @import "./variables/vars";
 @import "./mixins/mixins";
 
-.loading__icon img {
-  @include respond-to(320px) {
-    @include size(40px, 40px);
+.loading__icon {
+  @include size(100vh, 100vw);
+  @include centralize-col();
+  & img {
+    @include respond-to(320px) {
+      @include size(40px, 40px);
+    }
+    @include respond-to(1000px) {
+      @include size(100px, 100px);
+    }
+    animation: rota 1s linear infinite;
   }
-  @include respond-to(1000px) {
-    @include size(100px, 100px);
-  }
-  animation: rota 1s linear infinite;
 }
 
 @keyframes rota {

@@ -19,6 +19,7 @@
 
 @mixin login-input {
   height: 20px;
+  width: 100%;
   font-size: 15px;
   padding-left: 10px;
   margin-bottom: 15px;
@@ -35,5 +36,51 @@
 @mixin respond-to($width) {
   @media only screen and (min-width: $width) {
     @content;
+  }
+}
+
+@mixin item-nav-drawer {
+  padding: 5% 10%;
+  font-family: $font-first;
+  font-size: 1.5em;
+  color: $color-white;
+  transition: 0.3s;
+}
+
+@mixin btn-nav {
+  text-decoration: none;
+  font-family: $font-first;
+  padding: 4% 7%;
+  font-size: 0.6em;
+  border-radius: 2em;
+  background-color: $color-brand;
+  color: $color-white;
+  cursor: pointer;
+  &:hover {
+    outline: none;
+    background-color: $color-grey-dark;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin animationInfo {
+  @keyframes infoAppears {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes infoDisappears {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 }

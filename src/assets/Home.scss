@@ -2,19 +2,37 @@
 @import "./mixins/mixins";
 
 .content {
+  position: absolute;
   @include respond-to(320px) {
-    @include size(auto, 100vw);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    grid-gap: 10px;
-    justify-content: center;
+    @include size(auto, 100%);
+    @include centralize-col();
     background-color: $color-white-transparent-high;
     &__card {
-      @include size(auto, 92%);
-      @include centralize-col();
+      position: relative;
+      @include size(auto, 50%);
       border-radius: 5px;
       padding: 10px;
+      margin: 10px 0;
       background-color: $color-grey-transparent;
+      &--data {
+        @include animationInfo();
+        @include size(100%, 100%);
+        @include centralize-col();
+        position: absolute;
+        background-color: $color-grey-transparent-low;
+        top: 0%;
+        left: 0%;
+        border-radius: inherit;
+        color: $color-white;
+        animation: infoDisappears forwards 0.5s;
+        & h2 {
+          font-family: $font-first;
+          font-size: 0.4em;
+        }
+        &:hover {
+          animation: infoAppears forwards 0.5s;
+        }
+      }
       &--title {
         @include size(10%, 100%);
         @include centralize-col();
@@ -24,9 +42,20 @@
       }
       &--image {
         @include size(90%, 100%);
+        @include centralize-col();
         & img {
           object-fit: cover;
         }
+      }
+    }
+  }
+  @include respond-to(800px) {
+    &__card {
+      &--title {
+        font-size: 12px;
+      }
+      &--data h2 {
+        font-size: 1em;
       }
     }
   }

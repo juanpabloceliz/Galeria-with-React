@@ -2,12 +2,16 @@
 
 $color-brand: #4e2683;
 $color-brand-light: lighten($color-brand, 15%);
-$color-brand-dark: rgba($color-brand, 0.5);
+$color-brand-dark: rgba($color-brand, 0.7);
+$color-brand-transparent: rgba($color-brand, 0.2);
 $color-white: #ffffff;
 $color-white-transparent: rgba($color-white, 0.3);
-$color-white-transparent-high: rgba($color-white, 0.7);
+$color-white-transparent-low: rgba($color-white, 0.9);
+$color-white-transparent-high: rgba($color-white, 0.1);
 $color-black: #000000;
 $color-black-transparent: rgba($color-black, 0.3);
 $color-grey: #171417;
+$color-grey-dark: darken($color-grey, 5%);
 $color-grey-transparent: rgba($color-grey, 0.5);
+$color-grey-transparent-low: rgba($color-grey, 0.9);
 $font-first: "Montserrat", sans-serif;

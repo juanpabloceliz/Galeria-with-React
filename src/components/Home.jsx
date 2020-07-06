@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 
 import * as cardsAction from "../actions/cardsAction"
 
+import NavDrawer from "./NavDrawer"
 import LoadingIcon from "./resources/LoadingIcon.jsx"
 import "../assets/Home.scss"
 
@@ -16,7 +17,12 @@ class Home extends Component {
       return <LoadingIcon />
     }
 
-    return <div className="content">{this.createCard()}</div>
+    return (
+      <div className="content">
+        <NavDrawer />
+        {this.createCard()}
+      </div>
+    )
   }
 
   createCard = () =>
@@ -26,7 +32,15 @@ class Home extends Component {
           <h2> {card.author} </h2>
         </div>
         <div className="content__card--image">
-          <img src={card.download_url} alt="img" width="100%" />
+          <img src={card.download_url} alt="img" width="100%" z-index="5" />
+        </div>
+        <div className="content__card--data">
+          <h2>Id: {card.id}</h2>
+          <h2>Autor: {card.author}</h2>
+          <h2>Ancho: {card.width.toString()}</h2>
+          <h2>Alto: {card.height.toString()}</h2>
+          <h2>URL: {card.url}</h2>
+          <h2>Descarga: {card.download_url}</h2>
         </div>
       </div>
     ))

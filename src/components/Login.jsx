@@ -1,60 +1,61 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-
 import { loginRequest } from "../actions/loginAction"
 
 import "../assets/Login.scss"
 
 const Login = (props) => {
-  const [state, setState] = useState({ props })
+  const [form, setValues] = useState({ props })
 
   const handleInput = (event) => {
-    setState({
-      ...state,
+    setValues({
+      ...form,
       [event.target.name]: event.target.value,
     })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.loginRequest(state)
+    props.loginRequest(form)
     props.history.push("/home")
-    console.log(state)
+    console.log(form)
   }
 
   return (
     <React.Fragment>
-      <section className="login">
-        <section className="login__title">
-          <img
-            src="https://urbetrack.com/wp-content/uploads/2017/05/urbelogo.png"
-            alt="urbetrack logo"
-          />
-          <h1>Bienvenido</h1>
+      <div className="layout">
+        <section className="login">
+          <section className="login__title">
+            <img
+              src="https://urbetrack.com/wp-content/uploads/2017/05/urbelogo.png"
+              alt="urbetrack logo"
+            />
+            <h1>Bienvenido</h1>
+          </section>
+          <form className="login__form" onSubmit={handleSubmit}>
+            <input
+              name="User"
+              type="text"
+              className="login__form--user"
+              placeholder="Usuario"
+              onChange={handleInput}
+            />
+            <input
+              name="Password"
+              type="password"
+              className="login__form--password"
+              placeholder="Contraseña"
+              onChange={handleInput}
+            />
+            <button type="submit" className="login__btn">
+              Ingresar
+            </button>
+          </form>
+          <section className="login__text">
+            <p>Esta es una prueba técnica sobre React.</p>
+          </section>
         </section>
-        <form className="login__form" onSubmit={handleSubmit}>
-          <input
-            name="User"
-            type="text"
-            className="login__form--user"
-            placeholder="Usuario"
-            onChange={handleInput}
-          />
-          <input
-            name="Password"
-            type="password"
-            className="login__form--password"
-            placeholder="Contraseña"
-            onChange={handleInput}
-          />
-          <button type="submit" className="login__btn">
-            Ingresar
-          </button>
-        </form>
-        <section className="login__text">
-          <p>Esta es una prueba técnica sobre React.</p>
-        </section>
-      </section>
+      </div>
     </React.Fragment>
   )
 }
