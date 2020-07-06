@@ -16,7 +16,8 @@ export default (state = INITIAL_STATE, action) => {
     case LOGOUT_REQUEST:
       return {
         ...state,
-        INITIAL_STATE,
+        user: action.payload,
+        password: action.payload,
       }
     default:
       return state

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import { logoutRequest } from "../actions/logoutAction"
 import { Link } from "react-router-dom"
@@ -6,24 +6,10 @@ import { Link } from "react-router-dom"
 import "../assets/NavDrawer.scss"
 
 const NavDrawer = (props) => {
-  const [form, setValues] = useState({ props })
+  const hasUser = Object.keys(props).length > 0
 
-  const quitValues = () => {
-    setValues({
-      ...form,
-      [props.user]: "",
-    })
-  }
-
-  const handleOnClick = (event) => {
-    event.preventDefault()
-    props.logoutRequest(form)
-    console.log(form)
-    quitValues()
-  }
-
-  const printUser = (form) => {
-    form.props.user.map((user) => <p> {user} </p>)
+  const handleOnClick = () => {
+    props.logoutRequest({})
   }
 
   const darkMode = () => {
@@ -43,8 +29,14 @@ const NavDrawer = (props) => {
             />
           </div>
           <div className="navdrawer__user--name">
-            usuario:
-            {printUser}
+            {hasUser ? (
+              <p>
+                usuario: <br />
+                {props.user}
+              </p>
+            ) : (
+              <p>No hay usuario</p>
+            )}
           </div>
           <div className="navdrawer__user--logout">
             <button onClick={handleOnClick}>

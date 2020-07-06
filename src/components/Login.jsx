@@ -18,7 +18,6 @@ const Login = (props) => {
     event.preventDefault()
     props.loginRequest(form)
     props.history.push("/home")
-    console.log(form)
   }
 
   return (
@@ -34,14 +33,14 @@ const Login = (props) => {
           </section>
           <form className="login__form" onSubmit={handleSubmit}>
             <input
-              name="User"
+              name="user"
               type="text"
               className="login__form--user"
               placeholder="Usuario"
               onChange={handleInput}
             />
             <input
-              name="Password"
+              name="password"
               type="password"
               className="login__form--password"
               placeholder="Contraseña"
