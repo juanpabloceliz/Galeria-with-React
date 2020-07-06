@@ -1,0 +1,51 @@
+@import "./variables/vars";
+@import "./mixins/mixins";
+
+.navdrawer {
+  @include size(100%, 280px);
+  @include direction-col();
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -250px;
+  background-color: $color-grey;
+  overflow-x: hidden;
+  padding-top: 3%;
+  transition: 0.5s;
+  &:hover {
+    left: 0;
+  }
+  &__user {
+    @include size(40%, 80%);
+    @include item-nav-drawer();
+    @include centralize-col();
+    &--photo {
+      @include size(50%, 100%);
+      @include centralize-col();
+      & img {
+        border-radius: 50%;
+        margin-bottom: 10%;
+      }
+    }
+    &--logout {
+      @include size(50%, 100%);
+      @include centralize-col();
+      & button {
+        @include btn-nav();
+        padding: 3% 4%;
+        & a {
+          text-decoration: none;
+          font-family: $font-first;
+          color: $color-white;
+        }
+      }
+    }
+  }
+  &__changemode {
+    @include item-nav-drawer();
+    @include centralize-col();
+    & button {
+      @include btn-nav();
+    }
+  }
+}
