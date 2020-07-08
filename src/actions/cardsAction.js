@@ -1,14 +1,15 @@
 import axios from "axios"
 import { PULL_ALL, LOADING, ERROR } from "../types/cardsTypes"
 
+// con esta action hago el GET a la API, usando axios, también hago el catch del error
+// pero lo comunico sólo por consola.
+
 export const pullAll = () => async (dispatch) => {
   dispatch({
     type: LOADING,
   })
   try {
     const response = await axios.get("https://picsum.photos/v2/list")
-    // ?page=1&limit=2
-
     dispatch({
       type: PULL_ALL,
       payload: response.data,

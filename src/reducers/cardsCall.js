@@ -6,6 +6,8 @@ const INITIAL_STATE = {
   error: "",
 }
 
+//Este reducer se encarga de manejar el llamado a la API
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case PULL_ALL:

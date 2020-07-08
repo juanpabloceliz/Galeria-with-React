@@ -6,7 +6,11 @@ import "../assets/Login.scss"
 import swal from "sweetalert"
 
 const Login = (props) => {
+  // Defino el estado local para poder utilizarlo con hooks
+
   const [form, setValues] = useState({ props })
+
+  // Con 'handleInput' recibo los valores del input usuario y contraseña para pushearlos al estado local
 
   const handleInput = (event) => {
     setValues({
@@ -14,6 +18,9 @@ const Login = (props) => {
       [event.target.name]: event.target.value,
     })
   }
+
+  // Con 'handleSubmit' llamo al action de login para que pase los datos del estado local al store de redux
+  // y aplico la lógica para que filtre la contraseña válida de las incorrectas.
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -24,6 +31,8 @@ const Login = (props) => {
       swal("Contraseña incorrecta!", "Por favor ingrésala nuevamente!", "error")
     }
   }
+
+  // Dentro del return está toda la estructura del componente
 
   return (
     <React.Fragment>
@@ -73,5 +82,7 @@ const mapStateToProps = (reducers) => {
 const mapDispatchToProps = {
   loginRequest,
 }
+
+// A pesar de tener un solo reducer y una sola action uso los nombres por convención por buena práctica
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   password: "",
 }
 
+// Este reducer maneja todo respecto a login logout
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:

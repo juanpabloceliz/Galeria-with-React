@@ -6,16 +6,25 @@ import { Link } from "react-router-dom"
 import "../assets/NavDrawer.scss"
 
 const NavDrawer = (props) => {
+  // Hago una validación para chequear que haya usuario logueado
+  // en este caso siempre va a ser así pero lo considero buena práctica
+
   const hasUser = Object.keys(props).length > 0
+
+  // manejo el btn de cerrar sesión para que llame a la action de logout
 
   const handleOnClick = () => {
     props.logoutRequest({})
   }
 
+  // con esta función manejo el elemento body para cambiarle el fondo de acuerdo a su clase
+
   const darkMode = () => {
     var element = document.body
     element.classList.toggle("dark-mode")
   }
+
+  // en el return está toda la estructura del Nav Drawer
 
   return (
     <React.Fragment>

@@ -10,6 +10,9 @@ import "../assets/Home.scss"
 import swal from "sweetalert"
 
 class Home extends Component {
+  // Al momento de finalizar el montaje del componente hago el llamado a la API
+  // mediante la action 'pullAll'
+
   componentDidMount() {
     this.props.pullAll()
     swal(
@@ -18,6 +21,10 @@ class Home extends Component {
       "info"
     )
   }
+
+  // Con la función 'showContent' aplico la lógica para que muestre el ícono de carga o el contenido ya obtenido.
+  // El ícono de carga es un componente aparte dentro de la carpeta 'components/resources' por si
+  // se necesita en otro momento.
 
   showContent = () => {
     if (this.props.loading) {
@@ -31,6 +38,9 @@ class Home extends Component {
       </div>
     )
   }
+
+  // Con 'createCard' básicamente tomo los datos de la API que llegaron mediante el store de Redux
+  // a este componente y los muestro en pantalla uno por uno con la función 'map'.
 
   createCard = () =>
     this.props.cards.map((card) => (
