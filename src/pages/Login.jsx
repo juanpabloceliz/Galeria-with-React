@@ -29,7 +29,7 @@ const Login = (props) => {
       props.history.push("/home")
     } else if (form.user === "MyUser") {
       swal("Contraseña incorrecta!", "Por favor ingrésala nuevamente!", "error")
-    } else if (form.password === "01234") {
+    } else {
       swal("Usuario incorrecto!", "Por favor ingréselo nuevamente!", "error")
     }
   }
