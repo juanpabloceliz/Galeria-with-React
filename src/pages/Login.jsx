@@ -25,7 +25,7 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     props.loginRequest(form)
-    if (form.password === "123456") {
+    if (form.password === "01234") {
       props.history.push("/home")
     } else {
       swal("Contraseña incorrecta!", "Por favor ingrésala nuevamente!", "error")
@@ -39,10 +39,6 @@ const Login = (props) => {
       <div className="layout">
         <section className="login">
           <section className="login__title">
-            <img
-              src="https://urbetrack.com/wp-content/uploads/2017/05/urbelogo.png"
-              alt="urbetrack logo"
-            />
             <h1>Bienvenido</h1>
           </section>
           <form className="login__form" onSubmit={handleSubmit}>
@@ -67,7 +63,9 @@ const Login = (props) => {
             </button>
           </form>
           <section className="login__text">
-            <p>Esta es una prueba técnica sobre React.</p>
+            <p>
+              Esta es una prueba para React, la contraseña válida es "01234".
+            </p>
           </section>
         </section>
       </div>
