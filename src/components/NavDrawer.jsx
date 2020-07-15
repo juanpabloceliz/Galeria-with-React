@@ -41,7 +41,7 @@ const NavDrawer = (props) => {
             {hasUser ? (
               <p>
                 usuario: <br />
-                {props.user}
+                MyUser
               </p>
             ) : (
               <p>No hay usuario</p>

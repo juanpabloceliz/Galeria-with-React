@@ -20,15 +20,17 @@ const Login = (props) => {
   }
 
   // Con 'handleSubmit' llamo al action de login para que pase los datos del estado local al store de redux
-  // y aplico la lógica para que filtre la contraseña válida de las incorrectas.
+  // y aplico la lógica para que filtre la contraseña y usuario válido.
 
   const handleSubmit = (event) => {
     event.preventDefault()
     props.loginRequest(form)
-    if (form.password === "01234") {
+    if (form.password === "01234" && form.user === "MyUser") {
       props.history.push("/home")
-    } else {
+    } else if (form.user === "MyUser") {
       swal("Contraseña incorrecta!", "Por favor ingrésala nuevamente!", "error")
+    } else if (form.password === "01234") {
+      swal("Usuario incorrecto!", "Por favor ingréselo nuevamente!", "error")
     }
   }
 
@@ -64,7 +66,8 @@ const Login = (props) => {
           </form>
           <section className="login__text">
             <p>
-              Esta es una prueba para React, la contraseña válida es "01234".
+              Esta es una prueba para React, el usuario es "MyUser" y la
+              contraseña "01234".
             </p>
           </section>
         </section>
