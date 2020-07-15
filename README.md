@@ -9,6 +9,8 @@ Voy a utilizar Redux, Router, Sass y jsx para los componentes.
 
 ### Estructura
 
+A tener en cuenta que este proyecto es pequeño y no es muy escalable, por ende muchos componentes podría estar divididos en más componentes para ofracer mayor escalabilidad.
+
 La organización del repositorio será bastante convencional, dentro de la carpeta src estará en index.js junto a las carpetas:
 -containers: donde se encontrará el archivo App.js (cumpliendo la función de layout).
 -pages: dentro de esta carpeta van a estar las páginas que conforman el loyout de App.js.
@@ -41,10 +43,6 @@ Intentos de solución:
 - intenté definir el store global pero no dispuse del tiempo suficiente y los ratos que pude no logré completarlo.
 - traté de debuggear los datos que mandan el estado global y local del componente login y navdrawer.
 
-### Tiempo estimado
-
-Actualmente me encuentro bastante atareado laboralmente pero espero poder finalizarlo durante el fin de semana.
-
 ### Tiempo utilizado
 
-Como estimaba, pude casi completarlo el fin de semana, me quedaron detalles que solucioné el día lunes pero también me faltó un poco más de tiempo para poder solucionar el bug del usuario.
+Como estimaba, pude casi completarlo en un fin de semana, ultimando detalles el día lunes.
