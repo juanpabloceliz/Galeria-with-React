@@ -4,7 +4,7 @@
 .layout {
   @include size(100vh, 100%);
   @include centralize-col();
-  background-color: $color-brand;
+  background-color: $color-grey-transparent;
 }
 
 .login {
