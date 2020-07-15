@@ -42,6 +42,10 @@ Intentos de solución:
 
 - traté de debuggear los datos que mandan el estado global y local del componente login y navdrawer.
 
+Solución actual:
+
+- está "parchado" mediante una validación de usuario válido y puesto "a mano" en el navigation drawer.
+
 ### Tiempo utilizado
 
 Como estimaba, pude casi completarlo en un fin de semana, ultimando detalles el día lunes.
