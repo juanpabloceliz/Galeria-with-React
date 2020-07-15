@@ -40,7 +40,6 @@ Posibles hipótesis:
 
 Intentos de solución:
 
-- intenté definir el store global pero no dispuse del tiempo suficiente y los ratos que pude no logré completarlo.
 - traté de debuggear los datos que mandan el estado global y local del componente login y navdrawer.
 
 ### Tiempo utilizado
